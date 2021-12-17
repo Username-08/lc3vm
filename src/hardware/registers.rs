@@ -6,12 +6,26 @@ pub struct Registers {
     r_r4: u16,
     r_r5: u16,
     r_r6: u16,
-    r_r7: u16,
+    pub r_r7: u16,
     pub r_pc: u16, /* program counter */
     r_cond: u16,
 }
 
 impl Registers {
+    pub fn new() -> Self {
+        Self {
+            r_r0: 0,
+            r_r1: 0,
+            r_r2: 0,
+            r_r3: 0,
+            r_r4: 0,
+            r_r5: 0,
+            r_r6: 0,
+            r_r7: 0,
+            r_pc: 0x3000, /* program counter */
+            r_cond: 0,
+        }
+    }
     pub fn get_val(&self, index: u16) -> u16 {
         match index {
             0 => self.r_r0,

@@ -7,3 +7,6 @@ edition = "2021"
 
 [dependencies]
 byteorder = "1.4.3"
+libc = "0.2.112"
+signal-hook = "0.3.12"
+termios = "0.3.3"
