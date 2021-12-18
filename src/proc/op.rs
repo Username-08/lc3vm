@@ -1,8 +1,9 @@
 use crate::hardware::condflag::CondFlag;
 use crate::hardware::memory::Memory;
 use crate::hardware::registers::Registers;
-use crate::sys::getchar::get_char;
-use crate::sys::terminal;
+use crate::utils::get_char;
+// use crate::sys::getchar::get_char;
+// use crate::sys::terminal;
 use std::io::{stdout, Write};
 
 pub fn add(instr: u16, reg: &mut Registers) -> () {
@@ -153,7 +154,7 @@ pub fn extend_int(mut x: u16, bit_count: usize) -> u16 {
 /// TRAP ROUTINES
 // TRAP Codes
 pub fn trap(instr: u16, registers: &mut Registers, memory: &mut Memory) {
-    terminal::turn_off_canonical_and_echo_modes();
+    // terminal::turn_off_canonical_and_echo_modes();
     match instr & 0xFF {
         0x20 => {
             registers.update_val(0, get_char() as u16);
@@ -197,13 +198,13 @@ pub fn trap(instr: u16, registers: &mut Registers, memory: &mut Memory) {
             /* TRAP HALT */
             print!("HALT");
             stdout().flush().expect("Flushed.");
-            terminal::restore_terminal_settings();
+            // terminal::restore_terminal_settings();
             std::process::exit(1);
         }
         _ => {
-            terminal::restore_terminal_settings();
+            // terminal::restore_terminal_settings();
             std::process::exit(1);
         }
     }
-    terminal::restore_terminal_settings();
+    // terminal::restore_terminal_settings();
 }
