@@ -1,10 +1,8 @@
 extern crate byteorder;
-extern crate libc;
 use byteorder::{BigEndian, ReadBytesExt};
 mod hardware;
 mod proc;
 mod utils;
-// mod sys;
 
 use std::env::args;
 use std::fs;
