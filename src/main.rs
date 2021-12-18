@@ -1,5 +1,5 @@
 extern crate byteorder;
-extern crate libc;
+// extern crate libc;
 use byteorder::{BigEndian, ReadBytesExt};
 mod hardware;
 mod proc;
