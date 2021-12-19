@@ -47,4 +47,3 @@ fn read_file_to_mem(file: &String) -> Memory {
         }
     }
 }
-// test comment
